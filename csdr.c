@@ -1073,17 +1073,17 @@ int main(int argc, char *argv[])
 		//initialize FFT library, and measure time
 		fprintf(stderr,"fft_benchmark: initializing... ");
 		struct timespec start_time, end_time;		
-		clock_gettime(CLOCK_MONOTONIC_RAW, &start_time);
+		//clock_gettime(CLOCK_MONOTONIC_RAW, &start_time);
 		FFT_PLAN_T* plan=make_fft_c2c(fft_size,input,output,1,benchmark);
-		clock_gettime(CLOCK_MONOTONIC_RAW, &end_time);
-		fprintf(stderr,"done in %g seconds.\n",TIME_TAKEN(start_time,end_time));
+		//clock_gettime(CLOCK_MONOTONIC_RAW, &end_time);
+		//fprintf(stderr,"done in %g seconds.\n",TIME_TAKEN(start_time,end_time));
 		
 		//do the actual measurement about the FFT
-		clock_gettime(CLOCK_MONOTONIC_RAW, &start_time);
+		//clock_gettime(CLOCK_MONOTONIC_RAW, &start_time);
 		for(int i=0;i<fft_cycles;i++) fft_execute(plan);
-		clock_gettime(CLOCK_MONOTONIC_RAW, &end_time);
-		float time_taken_fft = TIME_TAKEN(start_time,end_time);
-		fprintf(stderr,"fft_benchmark: %d transforms of %d processed in %g seconds, %g seconds each.\n",fft_cycles,fft_size,time_taken_fft,time_taken_fft/fft_cycles);
+		//clock_gettime(CLOCK_MONOTONIC_RAW, &end_time);
+		//float time_taken_fft = TIME_TAKEN(start_time,end_time);
+		//fprintf(stderr,"fft_benchmark: %d transforms of %d processed in %g seconds, %g seconds each.\n",fft_cycles,fft_size,time_taken_fft,time_taken_fft/fft_cycles);
 		return 0;
 	}
 	
